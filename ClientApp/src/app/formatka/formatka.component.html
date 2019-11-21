@@ -1,0 +1,46 @@
+<p>formatka works!</p>
+
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+    <label>
+        Imie:
+        <input type="text" formControlName="firstName" required>
+    </label>
+    <br/>
+
+    <span *ngIf="personForm.controls['firstName'].invalid">
+        firstName is required.
+      </span>
+      <br>
+
+    <label>
+        Nazwisko:
+        <input type="text" formControlName="lastName">
+    </label>
+    <br/>
+
+    <label>
+        Wiek:
+        <input type="number" formControlName="age" minlength="1" maxlength="3">
+    </label>
+    <br/>
+
+<span>
+    {{personForm.value | json}}
+</span>
+<br/>
+
+<span>
+    Valid: {{personForm.valid}}
+</span>
+<br/>
+
+
+<span>
+    Pristine: {{personForm.pristine}}
+</span>
+<br/>
+
+<input type="submit" value="Save">
+
+
+</form>
